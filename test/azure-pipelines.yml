@@ -15,9 +15,8 @@ stages:
   - stage: Build
     jobs:
     - job:
-      pool: 
-       name: Default
-       demands: Culture -equals fr-FR
+      pool:
+        vmImage: 'windows-latest'
       displayName: Build unit test binaries
 
       steps:
@@ -45,9 +44,8 @@ stages:
   - stage: Test
     jobs:
     - job: ParallelTesting
-      pool: 
-        name: Default
-        demands: Culture -equals fr-FR
+      pool:
+        vmImage: 'windows-latest'
       strategy:
         parallel: 2
       displayName: Run tests in parallel
